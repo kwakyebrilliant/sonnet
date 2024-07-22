@@ -13,20 +13,18 @@ class _PromptScreenState extends State<PromptScreen> {
   final List<String> genres = [
     'Jazz',
     'Rock',
-    'Pop',
+    'Amapiano',
     'R&B',
-    'Punk',
     'Latin',
     'Hip-Hop',
     'Hip-Life',
     'Reggae',
     'Gospel',
     'Afrobeat',
-    'Amapiano',
     'Blues',
     'Country',
-    'Classic',
-    'Electronic',
+    'Punk',
+    'Pop',
   ];
 
   final Set<String> _selectedGenres = {};
@@ -79,8 +77,8 @@ class _PromptScreenState extends State<PromptScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                          left: 20.0,
-                          right: 20.0,
+                          left: 10.0,
+                          right: 10.0,
                           top: 5.0,
                         ),
                         child: Wrap(
