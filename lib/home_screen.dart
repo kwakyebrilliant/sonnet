@@ -66,15 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: const Color(0xFFFFFFFF),
                               width: 0.4,
                             ),
-                            borderRadius: BorderRadius.circular(100.0),
+                            shape: BoxShape.circle,
                           ),
                           child: Container(
                             height: 110.0,
                             width: 110.0,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(100.0),
-                              image: const DecorationImage(
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFFFFFFF),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
                                 image: AssetImage(
                                   "assets/images/sonnetlogo.png",
                                 ),
@@ -136,19 +136,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: GestureDetector(
                         onTap: widget.showPromptScreen,
                         child: Container(
-                          height: 50.0,
-                          width: 50.0,
-                          padding: const EdgeInsets.all(2.0),
+                          padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFFFFFF),
-                            borderRadius: BorderRadius.circular(100.0),
+                            color: const Color(0xFFFFCCCC).withOpacity(0.3),
+                            shape: BoxShape.circle,
                           ),
+                          child: Container(
+                            height: 50.0,
+                            width: 50.0,
+                            padding: const EdgeInsets.all(2.0),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFFFFFFF),
+                              shape: BoxShape.circle,
+                            ),
 
-                          // Arrow forward centered
-                          child: const Center(
-                            // Arrow forward
-                            child: Icon(
-                              Icons.arrow_forward,
+                            // Arrow forward centered
+                            child: const Center(
+                              // Arrow forward
+                              child: Icon(
+                                Icons.arrow_forward,
+                              ),
                             ),
                           ),
                         ),
