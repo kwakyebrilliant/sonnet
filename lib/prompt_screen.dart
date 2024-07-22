@@ -58,9 +58,9 @@ class _PromptScreenState extends State<PromptScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Expanded(
-              //   child: RandomCircles(),
-              // ),
+              Expanded(
+                child: RandomCircles(),
+              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -116,7 +116,7 @@ class _PromptScreenState extends State<PromptScreen> {
                                     genre,
                                     style: TextStyle(
                                       fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                       color: isSelected
                                           ? const Color(0xFFFFFFFF)
                                           : const Color(0xFF000000),
@@ -126,6 +126,29 @@ class _PromptScreenState extends State<PromptScreen> {
                               ),
                             );
                           }).toList(),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 60.0,
+                          left: 10.0,
+                          right: 10.0,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 15.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.0),
+                            color: const Color(0xFFFFCCCC),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Submit',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ],
