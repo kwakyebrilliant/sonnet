@@ -10,6 +10,21 @@ class PromptScreen extends StatefulWidget {
 }
 
 class _PromptScreenState extends State<PromptScreen> {
+  final List<String> genres = [
+    'Jazz',
+    'Rock',
+    'Jazz',
+    'Pop',
+    'Hip-Hop',
+    'Reggae',
+    'R&B',
+    'Punk',
+    'Gospel',
+    'Afrobeat',
+    'Blues',
+    'Country',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +44,9 @@ class _PromptScreenState extends State<PromptScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: RandomCircles(),
-              ),
+              // Expanded(
+              //   child: RandomCircles(),
+              // ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -44,6 +59,50 @@ class _PromptScreenState extends State<PromptScreen> {
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xFFFFFFFF).withOpacity(0.8),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20.0,
+                          right: 20.0,
+                          top: 5.0,
+                        ),
+                        child: Wrap(
+                          children: genres.map((genre) {
+                            return Container(
+                              padding: const EdgeInsets.all(3.0),
+                              margin:
+                                  const EdgeInsets.only(left: 5.0, top: 5.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    width: 0.4,
+                                    color: const Color(0xFFFFFFFF)
+                                        .withOpacity(0.8),
+                                  )),
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                  left: 16.0,
+                                  right: 16.0,
+                                  top: 8.0,
+                                  bottom: 8.0,
+                                ),
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFFFFFFFF).withOpacity(0.8),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Text(
+                                  genre,
+                                  style: const TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF000000),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }).toList(),
                         ),
                       ),
                     ],
