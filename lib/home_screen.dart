@@ -60,16 +60,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         // Container stacked at bottom of image
                         child: Container(
-                          height: 115.0,
-                          width: 115.0,
+                          padding: const EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFFFFFF),
+                            border: Border.all(
+                              color: const Color(0xFFFFFFFF),
+                              width: 0.4,
+                            ),
                             borderRadius: BorderRadius.circular(100.0),
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                "assets/images/sonnetlogo.png",
+                          ),
+                          child: Container(
+                            height: 110.0,
+                            width: 110.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(100.0),
+                              image: const DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/sonnetlogo.png",
+                                ),
+                                fit: BoxFit.cover,
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
