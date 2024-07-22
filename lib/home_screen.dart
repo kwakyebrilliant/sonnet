@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sonnet/prompt_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  final VoidCallback showPromptScreen;
+  const HomeScreen({super.key, required this.showPromptScreen});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,20 +123,23 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20.0),
 
                       // Container for arrow forward
-                      child: Container(
-                        height: 50.0,
-                        width: 50.0,
-                        padding: const EdgeInsets.all(2.0),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFFFFFF),
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
+                      child: GestureDetector(
+                        onTap: widget.showPromptScreen,
+                        child: Container(
+                          height: 50.0,
+                          width: 50.0,
+                          padding: const EdgeInsets.all(2.0),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(100.0),
+                          ),
 
-                        // Arrow forward centered
-                        child: const Center(
-                          // Arrow forward
-                          child: Icon(
-                            Icons.arrow_forward,
+                          // Arrow forward centered
+                          child: const Center(
+                            // Arrow forward
+                            child: Icon(
+                              Icons.arrow_forward,
+                            ),
                           ),
                         ),
                       ),

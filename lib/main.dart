@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sonnet/home_screen.dart';
+import 'package:sonnet/component/toggle_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: TogglePage(),
     );
   }
 }
