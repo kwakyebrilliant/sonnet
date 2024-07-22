@@ -27,6 +27,8 @@ class HomeScreen extends StatelessWidget {
             // First expanded
             Expanded(
               flex: 3,
+
+              // Padding around the stack for image container
               child: Padding(
                 padding: const EdgeInsets.only(top: 40.0),
                 child: Stack(
