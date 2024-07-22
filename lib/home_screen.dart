@@ -83,6 +83,7 @@ class HomeScreen extends StatelessWidget {
                 // Column starts here
                 child: Column(
                   children: [
+                    // Richtext here
                     RichText(
                       textAlign: TextAlign.center,
                       text: const TextSpan(
@@ -110,6 +111,9 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    // Richtext ends here
+
+                    // Container for arrow forward in a padding
                     Padding(
                       padding: const EdgeInsets.only(top: 20.0),
                       child: GestureDetector(
@@ -120,6 +124,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                           );
                         },
+
+                        // Container for arrow forward
                         child: Container(
                           height: 50.0,
                           width: 50.0,
@@ -128,8 +134,13 @@ class HomeScreen extends StatelessWidget {
                             color: const Color(0xFFFFFFFF),
                             borderRadius: BorderRadius.circular(100.0),
                           ),
+
+                          // Arrow forward centered
                           child: const Center(
-                            child: Icon(Icons.arrow_forward),
+                            // Arrow forward
+                            child: Icon(
+                              Icons.arrow_forward,
+                            ),
                           ),
                         ),
                       ),
