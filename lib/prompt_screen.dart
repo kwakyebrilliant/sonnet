@@ -13,7 +13,6 @@ class _PromptScreenState extends State<PromptScreen> {
   final List<String> genres = [
     'Jazz',
     'Rock',
-    'Jazz',
     'Pop',
     'Hip-Hop',
     'Reggae',
@@ -24,6 +23,18 @@ class _PromptScreenState extends State<PromptScreen> {
     'Blues',
     'Country',
   ];
+
+  final Set<String> _selectedGenres = {};
+
+  void _onGenreTap(String genre) {
+    setState(() {
+      if (_selectedGenres.contains(genre)) {
+        _selectedGenres.remove(genre);
+      } else {
+        _selectedGenres.add(genre);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,35 +80,44 @@ class _PromptScreenState extends State<PromptScreen> {
                         ),
                         child: Wrap(
                           children: genres.map((genre) {
-                            return Container(
-                              padding: const EdgeInsets.all(3.0),
-                              margin:
-                                  const EdgeInsets.only(left: 5.0, top: 5.0),
-                              decoration: BoxDecoration(
+                            final isSelected = _selectedGenres.contains(genre);
+                            return GestureDetector(
+                              onTap: () => _onGenreTap(genre),
+                              child: Container(
+                                padding: const EdgeInsets.all(3.0),
+                                margin:
+                                    const EdgeInsets.only(right: 4.0, top: 4.0),
+                                decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
                                   border: Border.all(
                                     width: 0.4,
                                     color: const Color(0xFFFFFFFF)
                                         .withOpacity(0.8),
-                                  )),
-                              child: Container(
-                                padding: const EdgeInsets.only(
-                                  left: 16.0,
-                                  right: 16.0,
-                                  top: 8.0,
-                                  bottom: 8.0,
+                                  ),
                                 ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color(0xFFFFFFFF).withOpacity(0.8),
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Text(
-                                  genre,
-                                  style: const TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF000000),
+                                child: Container(
+                                  padding: const EdgeInsets.only(
+                                    left: 16.0,
+                                    right: 16.0,
+                                    top: 8.0,
+                                    bottom: 8.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: isSelected
+                                        ? const Color(0xFF0000FF)
+                                        : const Color(0xFFFFFFFF)
+                                            .withOpacity(0.8),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Text(
+                                    genre,
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: isSelected
+                                          ? const Color(0xFFFFFFFF)
+                                          : const Color(0xFF000000),
+                                    ),
                                   ),
                                 ),
                               ),
