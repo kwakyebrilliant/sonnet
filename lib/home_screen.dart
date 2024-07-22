@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Container for contents
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -18,9 +19,12 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+
+        // Column starts here
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // First expanded
             Expanded(
               flex: 3,
               child: Padding(
@@ -62,6 +66,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Second expanded
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 15.0),
@@ -124,6 +130,8 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+
+        // Column ends here
       ),
     );
   }
