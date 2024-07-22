@@ -15,13 +15,18 @@ class _PromptScreenState extends State<PromptScreen> {
     'Rock',
     'Pop',
     'Hip-Hop',
+    'Hip-Life',
     'Reggae',
     'R&B',
     'Punk',
+    'Latin',
     'Gospel',
     'Afrobeat',
+    'Amapiano',
     'Blues',
     'Country',
+    'Classic',
+    'Electronic',
   ];
 
   final Set<String> _selectedGenres = {};
