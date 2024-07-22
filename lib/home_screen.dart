@@ -80,6 +80,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 15.0),
+                // Column starts here
                 child: Column(
                   children: [
                     RichText(
@@ -135,6 +136,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                // Column ends here
               ),
             ),
           ],
