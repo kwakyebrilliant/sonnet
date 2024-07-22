@@ -215,7 +215,7 @@ class RandomCircles extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: const Color(0xFFFFCCCC).withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Container(
