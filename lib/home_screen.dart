@@ -31,8 +31,10 @@ class HomeScreen extends StatelessWidget {
               // Padding around the stack for image container
               child: Padding(
                 padding: const EdgeInsets.only(top: 40.0),
+                // stack starts here
                 child: Stack(
                   children: [
+                    // Container for image
                     Container(
                       width: MediaQuery.of(context).size.width,
                       decoration: const BoxDecoration(
@@ -44,10 +46,14 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    // Padding for container stacked at the botttom of image
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40.0),
                       child: Align(
                         alignment: Alignment.bottomCenter,
+
+                        // Container stacked at bottom of image
                         child: Container(
                           height: 115.0,
                           width: 115.0,
@@ -66,6 +72,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                // stack ends here
               ),
             ),
 
