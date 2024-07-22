@@ -116,31 +116,22 @@ class HomeScreen extends StatelessWidget {
                     // Container for arrow forward in a padding
                     Padding(
                       padding: const EdgeInsets.only(top: 20.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const PromptScreen(),
-                            ),
-                          );
-                        },
 
-                        // Container for arrow forward
-                        child: Container(
-                          height: 50.0,
-                          width: 50.0,
-                          padding: const EdgeInsets.all(2.0),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFFFFFF),
-                            borderRadius: BorderRadius.circular(100.0),
-                          ),
+                      // Container for arrow forward
+                      child: Container(
+                        height: 50.0,
+                        width: 50.0,
+                        padding: const EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(100.0),
+                        ),
 
-                          // Arrow forward centered
-                          child: const Center(
-                            // Arrow forward
-                            child: Icon(
-                              Icons.arrow_forward,
-                            ),
+                        // Arrow forward centered
+                        child: const Center(
+                          // Arrow forward
+                          child: Icon(
+                            Icons.arrow_forward,
                           ),
                         ),
                       ),
