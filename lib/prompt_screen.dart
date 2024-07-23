@@ -57,6 +57,8 @@ class _PromptScreenState extends State<PromptScreen> {
               Color(0xFF000000),
             ],
           ),
+
+          // Background image here
           image: DecorationImage(
             image: AssetImage(
               "assets/images/background.png",
@@ -64,14 +66,21 @@ class _PromptScreenState extends State<PromptScreen> {
             fit: BoxFit.cover,
           ),
         ),
+
+        // Padding around contents
         child: Padding(
           padding: const EdgeInsets.only(top: 50.0, left: 16.0, right: 16.0),
+
+          // Columns starts here
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // First expanded for randon circles for moods
               // Expanded(
               //   child: RandomCircles(),
               // ),
+
+              // Second expanded for various genres and submit button
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -168,6 +177,7 @@ class _PromptScreenState extends State<PromptScreen> {
               ),
             ],
           ),
+          // Columns ends here
         ),
       ),
     );
