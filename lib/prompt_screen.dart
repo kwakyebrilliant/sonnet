@@ -82,8 +82,11 @@ class _PromptScreenState extends State<PromptScreen> {
 
               // Second expanded for various genres and submit button
               Expanded(
+                // Padding at the top of various genres and submit button in a column
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
+
+                  // Column starts here
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -173,6 +176,7 @@ class _PromptScreenState extends State<PromptScreen> {
                       ),
                     ],
                   ),
+                  // Column ends here
                 ),
               ),
             ],
