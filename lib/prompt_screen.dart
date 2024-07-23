@@ -90,6 +90,7 @@ class _PromptScreenState extends State<PromptScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Genre text here
                       Text(
                         'Genre',
                         style: GoogleFonts.inter(
@@ -98,12 +99,16 @@ class _PromptScreenState extends State<PromptScreen> {
                           color: const Color(0xFFFFFFFF).withOpacity(0.8),
                         ),
                       ),
+
+                      // Padding around variuos genres in a wrap
                       Padding(
                         padding: const EdgeInsets.only(
                           left: 10.0,
                           right: 10.0,
                           top: 5.0,
                         ),
+
+                        // Wrap starts here
                         child: Wrap(
                           children: genres.map((genre) {
                             final isSelected = _selectedGenres.contains(genre);
@@ -150,6 +155,7 @@ class _PromptScreenState extends State<PromptScreen> {
                             );
                           }).toList(),
                         ),
+                        // Wrap ends here
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
