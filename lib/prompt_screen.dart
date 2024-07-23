@@ -121,7 +121,7 @@ class _PromptScreenState extends State<PromptScreen> {
                                   ),
                                   child: Text(
                                     genre,
-                                    style: TextStyle(
+                                    style: GoogleFonts.inter(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w600,
                                       color: isSelected
@@ -147,10 +147,10 @@ class _PromptScreenState extends State<PromptScreen> {
                             borderRadius: BorderRadius.circular(20.0),
                             color: const Color(0xFFFFCCCC),
                           ),
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               'Submit',
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.bold,
                               ),
