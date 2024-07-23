@@ -171,13 +171,18 @@ class _PromptScreenState extends State<PromptScreen> {
                           left: 10.0,
                           right: 10.0,
                         ),
+
+                        // Container for submit button
                         child: Container(
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0),
                             color: const Color(0xFFFFCCCC),
                           ),
+
+                          // Submit text centered
                           child: Center(
+                            // Submit text here
                             child: Text(
                               'Submit',
                               style: GoogleFonts.inter(
@@ -202,6 +207,7 @@ class _PromptScreenState extends State<PromptScreen> {
   }
 }
 
+// RandomCircles for moods starts here
 class RandomCircles extends StatelessWidget {
   final Random random = Random();
   final List<Map<String, String>> moodData = [
