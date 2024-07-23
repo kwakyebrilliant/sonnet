@@ -64,9 +64,9 @@ class _PromptScreenState extends State<PromptScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: RandomCircles(),
-              ),
+              // Expanded(
+              //   child: RandomCircles(),
+              // ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),

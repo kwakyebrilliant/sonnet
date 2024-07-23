@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback showPromptScreen;
@@ -101,11 +102,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     // Richtext here
                     RichText(
                       textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        style: TextStyle(
+                      text: TextSpan(
+                        style: GoogleFonts.inter(
                           height: 1.3,
                         ),
-                        children: <TextSpan>[
+                        children: const <TextSpan>[
                           TextSpan(
                             text:
                                 'AI curated music playlist just for your mood \n',
