@@ -11,6 +11,7 @@ class PromptScreen extends StatefulWidget {
 }
 
 class _PromptScreenState extends State<PromptScreen> {
+  // Genre list
   final List<String> genres = [
     'Jazz',
     'Rock',
@@ -28,8 +29,10 @@ class _PromptScreenState extends State<PromptScreen> {
     'Pop',
   ];
 
+  // Selected genres list
   final Set<String> _selectedGenres = {};
 
+  // Function for selected genre(s)
   void _onGenreTap(String genre) {
     setState(() {
       if (_selectedGenres.contains(genre)) {
@@ -43,6 +46,7 @@ class _PromptScreenState extends State<PromptScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Conater for contents
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
