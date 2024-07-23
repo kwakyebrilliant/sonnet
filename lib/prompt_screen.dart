@@ -52,6 +52,12 @@ class _PromptScreenState extends State<PromptScreen> {
               Color(0xFF000000),
             ],
           ),
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/background.png",
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 50.0, left: 16.0, right: 16.0),
