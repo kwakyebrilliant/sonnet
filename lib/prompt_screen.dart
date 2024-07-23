@@ -76,9 +76,9 @@ class _PromptScreenState extends State<PromptScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // First expanded for randon circles for moods
-              // Expanded(
-              //   child: RandomCircles(),
-              // ),
+              Expanded(
+                child: RandomCircles(),
+              ),
 
               // Second expanded for various genres and submit button
               Expanded(
@@ -209,7 +209,10 @@ class _PromptScreenState extends State<PromptScreen> {
 
 // RandomCircles for moods starts here
 class RandomCircles extends StatelessWidget {
+  // An instance of Dart's Random
   final Random random = Random();
+
+  // Mood data list
   final List<Map<String, String>> moodData = [
     {'mood': 'Happy', 'image': 'assets/images/happy.png'},
     {'mood': 'Heartbroken', 'image': 'assets/images/heartbroken.png'},
@@ -224,12 +227,14 @@ class RandomCircles extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        // List for various circles and their positioning
         List<Widget> circles = [];
         List<Rect> positions = [];
 
+        // For loop
         for (int i = 0; i < 7; i++) {
-          double size =
-              random.nextDouble() * 100 + 50; // Size between 50 and 150
+          // Size between 50 and 150
+          double size = random.nextDouble() * 100 + 50;
           double left, top;
           Rect newPosition;
 
@@ -286,6 +291,7 @@ class RandomCircles extends StatelessWidget {
           );
         }
 
+        // Return stack with various circles
         return Stack(children: circles);
       },
     );
