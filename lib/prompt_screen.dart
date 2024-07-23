@@ -114,6 +114,8 @@ class _PromptScreenState extends State<PromptScreen> {
                             final isSelected = _selectedGenres.contains(genre);
                             return GestureDetector(
                               onTap: () => _onGenreTap(genre),
+
+                              // Container with border around each genre
                               child: Container(
                                 padding: const EdgeInsets.all(3.0),
                                 margin:
@@ -126,6 +128,8 @@ class _PromptScreenState extends State<PromptScreen> {
                                         .withOpacity(0.8),
                                   ),
                                 ),
+
+                                // Container for each genre
                                 child: Container(
                                   padding: const EdgeInsets.only(
                                     left: 16.0,
@@ -140,6 +144,8 @@ class _PromptScreenState extends State<PromptScreen> {
                                             .withOpacity(0.8),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
+
+                                  // Text for each genre
                                   child: Text(
                                     genre,
                                     style: GoogleFonts.inter(
@@ -157,6 +163,8 @@ class _PromptScreenState extends State<PromptScreen> {
                         ),
                         // Wrap ends here
                       ),
+
+                      // Padding around the submit button
                       Padding(
                         padding: const EdgeInsets.only(
                           top: 60.0,
