@@ -91,7 +91,7 @@ class _PromptScreenState extends State<PromptScreen> {
                                 margin:
                                     const EdgeInsets.only(right: 4.0, top: 4.0),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderRadius: BorderRadius.circular(20.0),
                                   border: Border.all(
                                     width: 0.4,
                                     color: const Color(0xFFFFFFFF)
@@ -110,7 +110,7 @@ class _PromptScreenState extends State<PromptScreen> {
                                         ? const Color(0xFF0000FF)
                                         : const Color(0xFFFFFFFF)
                                             .withOpacity(0.8),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Text(
                                     genre,
@@ -137,7 +137,7 @@ class _PromptScreenState extends State<PromptScreen> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12.0),
+                            borderRadius: BorderRadius.circular(20.0),
                             color: const Color(0xFFFFCCCC),
                           ),
                           child: const Center(
