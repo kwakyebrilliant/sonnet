@@ -301,7 +301,10 @@ class _RandomCirclesState extends State<RandomCircles> {
                     child: Container(
                       padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
-                        color: backgroundColor,
+                        border: Border.all(
+                          width: 2.0,
+                          color: backgroundColor,
+                        ),
                         shape: BoxShape.circle,
                       ),
                       child: Container(
