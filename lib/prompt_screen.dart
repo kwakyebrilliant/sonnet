@@ -109,57 +109,72 @@ class _PromptScreenState extends State<PromptScreen> {
                         ),
 
                         // Wrap starts here
-                        child: Wrap(
-                          children: genres.map((genre) {
-                            final isSelected = _selectedGenres.contains(genre);
-                            return GestureDetector(
-                              onTap: () => _onGenreTap(genre),
+                        child: StatefulBuilder(
+                          builder:
+                              (BuildContext context, StateSetter setState) {
+                            return Wrap(
+                              children: genres.map((genre) {
+                                final isSelected =
+                                    _selectedGenres.contains(genre);
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      if (_selectedGenres.contains(genre)) {
+                                        _selectedGenres.remove(genre);
+                                      } else {
+                                        _selectedGenres.add(genre);
+                                      }
+                                    });
+                                  },
 
-                              // Container with border around each genre
-                              child: Container(
-                                padding: const EdgeInsets.all(3.0),
-                                margin:
-                                    const EdgeInsets.only(right: 4.0, top: 4.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  border: Border.all(
-                                    width: 0.4,
-                                    color: const Color(0xFFFFFFFF)
-                                        .withOpacity(0.8),
-                                  ),
-                                ),
-
-                                // Container for each genre
-                                child: Container(
-                                  padding: const EdgeInsets.only(
-                                    left: 16.0,
-                                    right: 16.0,
-                                    top: 8.0,
-                                    bottom: 8.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: isSelected
-                                        ? const Color(0xFF0000FF)
-                                        : const Color(0xFFFFFFFF)
+                                  // Container with border around each genre
+                                  child: Container(
+                                    padding: const EdgeInsets.all(3.0),
+                                    margin: const EdgeInsets.only(
+                                        right: 4.0, top: 4.0),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      border: Border.all(
+                                        width: 0.4,
+                                        color: const Color(0xFFFFFFFF)
                                             .withOpacity(0.8),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
+                                      ),
+                                    ),
 
-                                  // Text for each genre
-                                  child: Text(
-                                    genre,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: isSelected
-                                          ? const Color(0xFFFFFFFF)
-                                          : const Color(0xFF000000),
+                                    // Container for each genre
+                                    child: Container(
+                                      padding: const EdgeInsets.only(
+                                        left: 16.0,
+                                        right: 16.0,
+                                        top: 8.0,
+                                        bottom: 8.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: isSelected
+                                            ? const Color(0xFF0000FF)
+                                            : const Color(0xFFFFFFFF)
+                                                .withOpacity(0.8),
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+
+                                      // Text for each genre
+                                      child: Text(
+                                        genre,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: isSelected
+                                              ? const Color(0xFFFFFFFF)
+                                              : const Color(0xFF000000),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                );
+                              }).toList(),
                             );
-                          }).toList(),
+                          },
                         ),
                         // Wrap ends here
                       ),
