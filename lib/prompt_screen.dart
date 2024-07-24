@@ -46,7 +46,7 @@ class _PromptScreenState extends State<PromptScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Conater for contents
+      // Container for contents
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
