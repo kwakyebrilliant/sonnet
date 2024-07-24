@@ -75,7 +75,7 @@ class _PromptScreenState extends State<PromptScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // First expanded for randon circles for moods
+              // First expanded for random circles for moods
               Expanded(
                 child: RandomCircles(),
               ),
@@ -100,7 +100,7 @@ class _PromptScreenState extends State<PromptScreen> {
                         ),
                       ),
 
-                      // Padding around variuos genres in a wrap
+                      // Padding around various genres in a wrap
                       Padding(
                         padding: const EdgeInsets.only(
                           left: 10.0,
@@ -223,11 +223,15 @@ class _PromptScreenState extends State<PromptScreen> {
 }
 
 // RandomCircles for moods starts here
-class RandomCircles extends StatelessWidget {
-  // An instance of Dart's Random
-  final Random random = Random();
+class RandomCircles extends StatefulWidget {
+  @override
+  _RandomCirclesState createState() => _RandomCirclesState();
+}
 
-  // Mood data list
+class _RandomCirclesState extends State<RandomCircles> {
+  final Random random = Random();
+  final ValueNotifier<String?> _selectedMood = ValueNotifier<String?>(null);
+
   final List<Map<String, String>> moodData = [
     {'mood': 'Happy', 'image': 'assets/images/happy.png'},
     {'mood': 'Heartbroken', 'image': 'assets/images/heartbroken.png'},
@@ -270,7 +274,7 @@ class RandomCircles extends StatelessWidget {
 
           positions.add(newPosition);
 
-          final Color color = Color.fromARGB(
+          Color color = Color.fromARGB(
             255,
             random.nextInt(256),
             random.nextInt(256),
@@ -281,30 +285,41 @@ class RandomCircles extends StatelessWidget {
             Positioned(
               left: left,
               top: top,
-              child: Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFCCCC).withOpacity(0.1),
-                  shape: BoxShape.circle,
-                ),
-                child: Container(
-                  width: size,
-                  height: size,
-                  decoration: BoxDecoration(
-                    color: color,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        moodData[i]['image']!,
-                        width: size * 0.8,
-                        height: size * 0.8,
+              child: ValueListenableBuilder<String?>(
+                valueListenable: _selectedMood,
+                builder: (context, selectedMood, child) {
+                  final bool isSelected = selectedMood == moodData[i]['mood'];
+                  final Color backgroundColor = isSelected
+                      ? const Color(0xFF0000FF)
+                      : const Color(0xFFFFCCCC).withOpacity(0.1);
+
+                  return GestureDetector(
+                    onTap: () {
+                      _selectedMood.value =
+                          isSelected ? null : moodData[i]['mood'];
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: backgroundColor,
+                        shape: BoxShape.circle,
                       ),
-                    ],
-                  ),
-                ),
+                      child: Container(
+                        width: size,
+                        height: size,
+                        decoration: BoxDecoration(
+                          color: color,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset(
+                          moodData[i]['image']!,
+                          width: size * 0.8,
+                          height: size * 0.8,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           );
