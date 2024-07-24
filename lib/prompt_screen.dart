@@ -242,19 +242,18 @@ class RandomCircles extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // List for various circles and their positioning
-        List<Widget> circles = [];
-        List<Rect> positions = [];
+        final List<Widget> circles = [];
+        final List<Rect> positions = [];
 
-        // For loop
-        for (int i = 0; i < 7; i++) {
-          // Size between 50 and 150
-          double size = random.nextDouble() * 100 + 50;
+        for (int i = 0; i < moodData.length; i++) {
+          final double size = random.nextDouble() * 100 + 50;
           double left, top;
           Rect newPosition;
 
-          // Ensure circles do not overlap
           bool doesOverlap;
+          int attempts = 0;
+          const int maxAttempts = 100;
+
           do {
             left = random.nextDouble() * (constraints.maxWidth - size);
             top = random.nextDouble() * (constraints.maxHeight - size);
@@ -262,11 +261,16 @@ class RandomCircles extends StatelessWidget {
 
             doesOverlap =
                 positions.any((position) => position.overlaps(newPosition));
-          } while (doesOverlap);
+            attempts++;
+          } while (doesOverlap && attempts < maxAttempts);
+
+          if (attempts == maxAttempts) {
+            continue;
+          }
 
           positions.add(newPosition);
 
-          Color color = Color.fromARGB(
+          final Color color = Color.fromARGB(
             255,
             random.nextInt(256),
             random.nextInt(256),
@@ -306,7 +310,6 @@ class RandomCircles extends StatelessWidget {
           );
         }
 
-        // Return stack with various circles
         return Stack(children: circles);
       },
     );
