@@ -32,6 +32,12 @@ class _PromptScreenState extends State<PromptScreen> {
   // Selected genres list
   final Set<String> _selectedGenres = {};
 
+  // Selected mood
+  String? _selectedMood;
+
+  // Playlist
+  List<String> _playlist = [];
+
   // Function for selected genre(s)
   void _onGenreTap(String genre) {
     setState(() {
@@ -42,6 +48,9 @@ class _PromptScreenState extends State<PromptScreen> {
       }
     });
   }
+
+  // Function to submit mood and genres and fetch playlist
+  Future<void> _submitSelections() async {}
 
   @override
   Widget build(BuildContext context) {
