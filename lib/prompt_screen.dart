@@ -50,7 +50,16 @@ class _PromptScreenState extends State<PromptScreen> {
   }
 
   // Function to submit mood and genres and fetch playlist
-  Future<void> _submitSelections() async {}
+  Future<void> _submitSelections() async {
+    if (_selectedMood == null || _selectedGenres.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select a mood and at least one genre'),
+        ),
+      );
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +95,11 @@ class _PromptScreenState extends State<PromptScreen> {
             children: [
               // First expanded for random circles for moods
               Expanded(
-                child: RandomCircles(),
+                child: RandomCircles(
+                  onMoodSelected: (mood) {
+                    _selectedMood = mood;
+                  },
+                ),
               ),
 
               // Second expanded for various genres and submit button
@@ -196,22 +209,27 @@ class _PromptScreenState extends State<PromptScreen> {
                           right: 10.0,
                         ),
 
-                        // Container for submit button
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 15.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: const Color(0xFFFFCCCC),
-                          ),
+                        // Container for submit button in GestureDetector
+                        child: GestureDetector(
+                          onTap: _submitSelections,
 
-                          // Submit text centered
-                          child: Center(
-                            // Submit text here
-                            child: Text(
-                              'Submit',
-                              style: GoogleFonts.inter(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
+                          // Container for submit button
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 15.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: const Color(0xFFFFCCCC),
+                            ),
+
+                            // Submit text centered
+                            child: Center(
+                              // Submit text here
+                              child: Text(
+                                'Submit',
+                                style: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -233,6 +251,10 @@ class _PromptScreenState extends State<PromptScreen> {
 
 // RandomCircles for moods starts here
 class RandomCircles extends StatefulWidget {
+  final Function(String?) onMoodSelected;
+  const RandomCircles({Key? key, required this.onMoodSelected})
+      : super(key: key);
+
   @override
   _RandomCirclesState createState() => _RandomCirclesState();
 }
@@ -306,6 +328,7 @@ class _RandomCirclesState extends State<RandomCircles> {
                     onTap: () {
                       _selectedMood.value =
                           isSelected ? null : moodData[i]['mood'];
+                      widget.onMoodSelected(_selectedMood.value);
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8.0),
