@@ -311,7 +311,9 @@ class _RandomCirclesState extends State<RandomCircles> {
                         width: size,
                         height: size,
                         decoration: BoxDecoration(
-                          color: color,
+                          color: isSelected
+                              ? const Color(0xFFFFCCCC).withOpacity(0.1)
+                              : color,
                           shape: BoxShape.circle,
                         ),
                         child: Image.asset(
