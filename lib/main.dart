@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sonnet/component/toggle_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
+
   runApp(const MyApp());
 }
 
