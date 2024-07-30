@@ -6,7 +6,7 @@
   <p align="center">
     Mood-based AI music playlist recommendation app using Flutter, OpenAI, Spotify, Audiomack! 🎵📱
     <br />
-    <a href="https://youtu.be/bxfhe53lTmk"><strong>Youtube Tutorial »</strong></a>
+    <a href="https://www.youtube.com/watch?v=bxfhe53lTmk"><strong>Youtube Tutorial »</strong></a>
     <br />
     <br />
     
