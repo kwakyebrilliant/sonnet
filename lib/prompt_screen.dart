@@ -100,7 +100,7 @@ class _PromptScreenState extends State<PromptScreen> {
       ),
     );
 
-    // Print the response body for debugging
+    // Print
     print(response.body);
 
     if (response.statusCode == 200) {
